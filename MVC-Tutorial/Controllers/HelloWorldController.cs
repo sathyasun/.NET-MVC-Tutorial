@@ -8,9 +8,9 @@ namespace MvcMovie.Controllers
         // 
         // GET: /HelloWorld/ 
  
-        public string Index() 
+        public ActionResult Index() 
         { 
-            return "This is my <b>default</b> action..."; 
+            return View(); 
         } 
  
         // 
@@ -35,6 +35,18 @@ namespace MvcMovie.Controllers
         public string RouteParamWelcome(string name, int ID = 1)
         {
             return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is: " + ID); ;
+        }
+
+        //
+        // GET: /HelloWorld/ViewWelcome?name=x&numTimes=y
+        // Learnt that the Method name and the View file name must be the same. If they are not the same view will not 
+        // render the page according conditions presented in the method. 
+        public ActionResult ViewWelcome(string name, int numTimes = 1)
+        {
+            ViewBag.Message = "Hello " + name;
+            ViewBag.NumTimes = numTimes;
+
+            return View();
         }
     } 
 }
