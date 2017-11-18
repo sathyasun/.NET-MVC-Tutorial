@@ -18,6 +18,13 @@ namespace MVC_Tutorial
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // Additional route added from tutotial. 
+            // In this url handler, the name and ID are specified in the end of the URL.
+            routes.MapRoute(
+                name: "Hello",
+                url: "{controller}/{action}/{name}/{id}"
+            );
         }
     }
 }
